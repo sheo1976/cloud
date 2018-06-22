@@ -71,7 +71,7 @@ class CpuBurner(object):
             return (500, "Request failed\n")
         else:
             end_time = self.get_walltime()
-            response = "Asia Request took %.2f walltime seconds\n" % (
+            response = "US West Request took %.2f walltime seconds\n" % (
                 end_time - start_time)
             return (200, response)
 
@@ -82,7 +82,7 @@ class DemoRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         """Handle an HTTP GET request."""
         mapping = {
-            "/": lambda: (200, "OK Asia"),  # Return HTTP 200 response.
+            "/": lambda: (200, "OK USA West"),  # Return HTTP 200 response.
             "/service": CpuBurner().handle_http_request,
         }
         if self.path not in mapping:
